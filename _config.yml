@@ -1,29 +1,27 @@
-# Welcome to Jekyll and Thank you for using Renge as your theme.
-
-# Renge is designed by Junchao (www.junchaowang.com) and inspired by amination
-# “のんのんびより” and named by one of the Characters "Renge Miyauchi (宮内 れんげ Miyauchi Renge)".
-# If you have any questions, you can reach me via https://github.com/billyfish152 by submitting
-# an issue or via email billyfish152@gmail.com.
-
-# Please install jekyll-paginate before build it.
-# sudo gem install jekyll-paginate in linux or MacOS.
-# gem install jekyll-paginate in Windows.
-
-# Renge supports categories and tags, which are defined in each of your posts.
-# Also, You can add or removed links in /_includes/sider.html .
-# please change the belowing settings to your own.
-
 # Site settings
-title: Renge
-email: billyfish152@gmail.com
-description: Renge is a Jekyll theme that is designed by Junchao (www.junchaowang.com) and inspired by amination “のんのんびより” and named by one of the Characters "Renge Miyauchi (宮内 れんげ Miyauchi Renge)".
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.junchaowang.com" # the base hostname & protocol for your site
-twitter_username:
-github_username:  billyfish152
+name: Less Or More
+email: luoyan35714@126.com
+author: Freud Kang
+url: http://www.hifreud.com
+resume_site: http://www.hifreud.com/Resume.io/
+github: https://github.com/luoyan35714/
+baseurl: "/LessOrMore"
+description: Actually, less is more!
+meta_description: 康志华;个人博客;学而不思则罔;思而不学则殆;生命不止;折腾不休
+motto: It's our wits that make us men.
+banner: 学而不思则罔，思而不学则殆。
+
+#permalink: /:categories/:year/:month/:day/:title/
+permalink: /:year/:month/:day/:title/
+paginate: 10
+
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+
+github_username: luoyan35714
+highlighter: Rouge
 
 # Build settings
 markdown: kramdown
-paginate: 3
-gems: [jekyll-paginate]
-paginate_path: "/page/:num"
+
+baidu_analysis: 94be4b0f9fc5d94cc0d0415ea6761ae9
+
