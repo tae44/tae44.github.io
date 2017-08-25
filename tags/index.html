@@ -15,9 +15,9 @@ group: navigation
       {% if node.title != null %}
         {% if group == null or group == node.group %}
           {% if page.url == node.url %}
-          <li class="list-group-item"><a href="{{ site.baseurl }}{{node.url}}" class="active">{{node.title}}</a></li>
+          <a href="{{ site.baseurl }}{{node.url}}" class="active">{{node.title}}</a>
           {% else %}
-          <li class="list-group-item"><a href="{{ site.baseurl }}{{node.url}}">{{node.title}}</a></li>
+          <a href="{{ site.baseurl }}{{node.url}}">{{node.title}}</a>
           {% endif %}
         {% endif %}
       {% endif %}
