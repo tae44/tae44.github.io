@@ -1,32 +1,40 @@
-# About
+# Tale
+Tale is a minimal Jekyll theme curated for storytellers. Checkout the demo [here](https://chesterhow.github.io/tale/).
 
-This is my blog based on jekyll. And I change the style and interactive. If you want to use this model of the blog. **Please give a star at this repository**. Then you can clone it as your blog model.
+![Tale screenshot](http://i.imgur.com/pXZrtmo.png)
 
-You can visit [here](http://gaohaoyang.github.io) to see this blog.
+## Features
+- Compatible with GitHub Pages
+- Responsive design (looks just as good on mobile)
+- Syntax highlighting, with the help of Pygments
+- Markdown and HTML text formatting
+- Pagination of posts
 
----
+## Usage
+### 1. Fork and Clone
+Fork this repository then clone it.
 
-这是我的博客，基于 jekyll。我改了所有默认的样式和交互。如果你想使用这个博客模板。**请先在这个仓库上点个star吧**，这也是对我的肯定和鼓励，谢谢了。然后你可以克隆这个仓库用作你自己的博客。
+### 2. Install dependencies
+Tale uses Jekyll's built-SCSS compiler to generate CSS. You'll need to install the Jekyll gem:
 
-博客访问地址：[点击这里](http://gaohaoyang.github.io)
+```bash
+$ gem install jekyll
+```
 
-**使用时请注明模板来源:  Jekyll theme by [Gaohaoyang](https://github.com/Gaohaoyang/gaohaoyang.github.io)**
+### 3. Create your site
+Edit the `_config.yml` file to suit your site. Also replace posts and content with your own.
 
-<!--
+### 4. Running Locally
+To test your site locally, run this in your site's root directory
 
-## 被引用信息
+```bash
+$ jekyll serve --watch
+```
 
-使用了我的模板并写明来源的人：   
+Head to http://localhost:4000 to see your site in action.
 
-* [dreamholy](http://dreamholy.github.io/)
+## Contributing
+Found a bug or have a suggestion? Feel free to create an issue or make a pull request!
 
-没有注明来源的人：
-
-* [yangshuailing](http://yangshuailing.github.io/com/)
-* [huapu728](http://huapu728.github.io/)
-* [greatbuger](http://greatbuger.github.io/) 
-
-
--->
-
-
+## License
+See [LICENSE](https://github.com/chesterhow/tale/blob/master/LICENSE)
