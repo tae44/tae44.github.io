@@ -70,6 +70,95 @@ http://hadoop.f.dajiangtai.com/extralib/hadoop2.6.0-64-bin.rar
 3. 把Hadoop相关的jar包导入到项目中，点击项目右键 --> Build Path -- >Configure Build Path
 ![](http://ov7z79pcc.bkt.clouddn.com/15038040384150.jpg)
 
+4. 添加4个文件夹，及common下的lib即可
+![](http://ov7z79pcc.bkt.clouddn.com/15038111765997.jpg)
+![Snip20170827_21](http://ov7z79pcc.bkt.clouddn.com/Snip20170827_21.png)
+![Snip20170827_22](http://ov7z79pcc.bkt.clouddn.com/Snip20170827_22.png)
+
+5. 在src目录下创建一个包名比如hadoop，然后编写一个MapReduce示例程序WordCount
+
+```package hadoop;
+
+import java.io.IOException;
+import java.util.StringTokenizer;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+
+public class WordCount {
+
+  public static class TokenizerMapper
+       extends Mapper<Object, Text, Text, IntWritable>{
+
+    private final static IntWritable one = new IntWritable(1);
+    private Text word = new Text();
+
+    public void map(Object key, Text value, Context context
+                    ) throws IOException, InterruptedException {
+      StringTokenizer itr = new StringTokenizer(value.toString());
+      while (itr.hasMoreTokens()) {
+        word.set(itr.nextToken());
+        context.write(word, one);
+      }
+    }
+  }
+
+  public static class IntSumReducer
+       extends Reducer<Text,IntWritable,Text,IntWritable> {
+    private IntWritable result = new IntWritable();
+
+    public void reduce(Text key, Iterable<IntWritable> values,
+                       Context context
+                       ) throws IOException, InterruptedException {
+      int sum = 0;
+      for (IntWritable val : values) {
+        sum += val.get();
+      }
+      result.set(sum);
+      context.write(key, result);
+    }
+  }
+
+  public static void main(String[] args) throws Exception {
+    Configuration conf = new Configuration();
+    Job job = Job.getInstance(conf, "word count");
+    job.setJarByClass(WordCount.class);
+    job.setMapperClass(TokenizerMapper.class);
+    job.setCombinerClass(IntSumReducer.class);
+    job.setReducerClass(IntSumReducer.class);
+    job.setOutputKeyClass(Text.class);
+    job.setOutputValueClass(IntWritable.class);
+    // InputPath和OutputPath路径改为自己服务器的
+    FileInputFormat.addInputPath(job, new Path("hdfs://h1:9000/dajiangtai/abc.txt"));
+    FileOutputFormat.setOutputPath(job, new Path("hdfs://h1:9000/dajiangtai/abc-out"));
+    System.exit(job.waitForCompletion(true) ? 0 : 1);
+  }
+}
+```
+
+6. 这里我们需要下载log4j.properties文件放到src目录下，这样程序运行时可以打印日志，便于调试程序。
+http://hadoop.f.dajiangtai.com/extralib/log4j.rar
+
+7. 将自己创建的abc.txt文件上传至HDFS文件系统的/dajiangtai目录下，使用刚才的hadoop插件即可完成各类文件的操作
+![](http://ov7z79pcc.bkt.clouddn.com/15038118255798.jpg)
+
+8. 右键选择Run as，运行程序
+![](http://ov7z79pcc.bkt.clouddn.com/15038119364484.jpg)
+
+9. 查看结果
+![](http://ov7z79pcc.bkt.clouddn.com/15038120379556.jpg)
+![](http://ov7z79pcc.bkt.clouddn.com/15038120575685.jpg)
+
+
+
+
+
 
 
 
