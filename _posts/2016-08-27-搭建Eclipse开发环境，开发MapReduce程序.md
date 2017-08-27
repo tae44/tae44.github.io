@@ -139,9 +139,12 @@ public class WordCount {
 }
 ```
 
-
-10. 这里我们需要下载log4j.properties文件放到src目录下，这样程序运行时可以打印日志，便于调试程序。
+5. sdsad
+6. 这里我们需要下载log4j.properties文件放到src目录下，这样程序运行时可以打印日志，便于调试程序
 http://hadoop.f.dajiangtai.com/extralib/log4j.rar
+
+7. sad
+8. 
 
 11. 将自己创建的abc.txt文件上传至HDFS文件系统的/dajiangtai目录下，使用刚才的hadoop插件即可完成各类文件的操作
 ![](http://ov7z79pcc.bkt.clouddn.com/15038118255798.jpg)
