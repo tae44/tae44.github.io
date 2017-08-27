@@ -30,7 +30,7 @@ mathjax: true
 ![](http://ov7z79pcc.bkt.clouddn.com/15038014539847.jpg)
 
 # 在MyEclipse上安装hadoop插件
-1. 下载2.6.0版本的hadoop插件
+1. 下载2.6.0版本的hadoop插件    
 http://hadoop.f.dajiangtai.com/extralib/hadoop-eclipse-plugin-2.6.0.jar
 
 2. 把插件放到MyEclipse安装目录的dropins目录下，Windows系统下直接放入即可，Mac系统需要进入软件包内放置
@@ -40,7 +40,7 @@ http://hadoop.f.dajiangtai.com/extralib/hadoop-eclipse-plugin-2.6.0.jar
 3. 重启MyEclipse，之后打开Windows --> Preferences，在窗口左侧会有Hadoop Map/Reduce选项，点击此选项，在窗口右侧设置Hadoop安装路径。
 ![](http://ov7z79pcc.bkt.clouddn.com/15038023306336.jpg)
 
-4. 下载Windows下hadoop运行补丁，Mac下无需此操作，Hadoop2.6.0版本的Windows安装的是64位JDK则下载
+4. 下载Windows下hadoop运行补丁，Mac下无需此操作，Hadoop2.6.0版本的Windows安装的是64位JDK则下载<br>
 http://hadoop.f.dajiangtai.com/extralib/hadoop2.6.0-64-bin.rar
 
 5. 解压下载的补丁，将里面hadoop.dll和winutils.exe两个文件放到Hadoop安装bin目录下，比如说是你安装在D:\hadoop-2.6.0\bin，安装包的名称不一定要跟此文一样。与此同时，还需要将hadoop.dll和winutils.exe这两个文件放入到C:\Windows\System32目录下
