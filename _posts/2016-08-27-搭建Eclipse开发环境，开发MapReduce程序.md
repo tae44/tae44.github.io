@@ -14,7 +14,6 @@ mathjax: true
 
 # JDK安装配置及MyEclipse安装这里不在赘述了
 <br>
-<br>
 # 在MyEclipse中配置JDK
 1. 打开MyEclipse然后在工具栏上找到window --> preferences
 
@@ -77,7 +76,8 @@ http://hadoop.f.dajiangtai.com/extralib/hadoop2.6.0-64-bin.rar
 
 5. 在src目录下创建一个包名比如hadoop，然后编写一个MapReduce示例程序WordCount
 
-```package hadoop;
+```java
+package hadoop;
 
 import java.io.IOException;
 import java.util.StringTokenizer;
