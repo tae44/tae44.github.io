@@ -77,7 +77,7 @@ http://hadoop.f.dajiangtai.com/extralib/hadoop2.6.0-64-bin.rar
 
 5. 在src目录下创建一个包名比如hadoop，然后编写一个MapReduce示例程序WordCount
 
-package hadoop;
+```package hadoop;
 
 import java.io.IOException;
 import java.util.StringTokenizer;
@@ -137,7 +137,7 @@ public class WordCount {
     System.exit(job.waitForCompletion(true) ? 0 : 1);
   }
 }
-
+```
 
 6. 这里我们需要下载log4j.properties文件放到src目录下，这样程序运行时可以打印日志，便于调试程序。
 http://hadoop.f.dajiangtai.com/extralib/log4j.rar
