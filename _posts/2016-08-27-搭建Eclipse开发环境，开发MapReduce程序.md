@@ -60,21 +60,21 @@ http://hadoop.f.dajiangtai.com/extralib/hadoop2.6.0-64-bin.rar
 ![](http://ov7z79pcc.bkt.clouddn.com/15038033541701.jpg)
 
 # 构建Map/Reduce项目
-1. 打开MyEclipse，我们选择 File --> New --> Other，点击后出现如下界面，选中Map/Reduce Project，点击下一步
+* 1 打开MyEclipse，我们选择 File --> New --> Other，点击后出现如下界面，选中Map/Reduce Project，点击下一步
 ![](http://ov7z79pcc.bkt.clouddn.com/15038039274290.jpg)
 
-2. 在Project name后面输入项目名称，点击Finish完成Map/Reduce项目的创建
+* 2 在Project name后面输入项目名称，点击Finish完成Map/Reduce项目的创建
 ![](http://ov7z79pcc.bkt.clouddn.com/15038039899204.jpg)
 
-3. 把Hadoop相关的jar包导入到项目中，点击项目右键 --> Build Path -- >Configure Build Path
+* 3 把Hadoop相关的jar包导入到项目中，点击项目右键 --> Build Path -- >Configure Build Path
 ![](http://ov7z79pcc.bkt.clouddn.com/15038040384150.jpg)
 
-4. 添加4个文件夹，及common下的lib即可
+* 4 添加4个文件夹，及common下的lib即可
 ![](http://ov7z79pcc.bkt.clouddn.com/15038111765997.jpg)
 ![Snip20170827_21](http://ov7z79pcc.bkt.clouddn.com/Snip20170827_21.png)
 ![Snip20170827_22](http://ov7z79pcc.bkt.clouddn.com/Snip20170827_22.png)
 
-5. 在src目录下创建一个包名比如hadoop，然后编写一个MapReduce示例程序WordCount
+* 5 在src目录下创建一个包名比如hadoop，然后编写一个MapReduce示例程序WordCount
 
 ```java
 package hadoop;
@@ -139,16 +139,16 @@ public class WordCount {
 }
 ```
 
-这里我们需要下载log4j.properties文件放到src目录下，这样程序运行时可以打印日志，便于调试程序
+* 6 这里我们需要下载log4j.properties文件放到src目录下，这样程序运行时可以打印日志，便于调试程序
 http://hadoop.f.dajiangtai.com/extralib/log4j.rar
 
-6. 将自己创建的abc.txt文件上传至HDFS文件系统的/dajiangtai目录下，使用刚才的hadoop插件即可完成各类文件的操作
+* 7 将自己创建的abc.txt文件上传至HDFS文件系统的/dajiangtai目录下，使用刚才的hadoop插件即可完成各类文件的操作
 ![](http://ov7z79pcc.bkt.clouddn.com/15038118255798.jpg)
 
-7. 右键选择Run as，运行程序
+* 8 右键选择Run as，运行程序
 ![](http://ov7z79pcc.bkt.clouddn.com/15038119364484.jpg)
 
-8. 查看结果
+* 9 查看结果
 ![](http://ov7z79pcc.bkt.clouddn.com/15038120379556.jpg)
 ![](http://ov7z79pcc.bkt.clouddn.com/15038120575685.jpg)
 
