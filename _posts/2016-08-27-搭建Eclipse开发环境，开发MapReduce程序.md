@@ -13,8 +13,8 @@ mathjax: true
 
 
 # JDK安装配置及MyEclipse安装这里不在赘述了
-
-
+<br>
+<br>
 # 在MyEclipse中配置JDK
 1. 打开MyEclipse然后在工具栏上找到window --> preferences
 
@@ -55,12 +55,20 @@ http://hadoop.f.dajiangtai.com/extralib/hadoop2.6.0-64-bin.rar
 * 如果连接成功，在project explorer的DFS Locations下会展现hdfs集群中的文件
 ![](http://ov7z79pcc.bkt.clouddn.com/15038031777169.jpg)
 
-# Hadoop环境配置
+# Hadoop环境配置(Mac下无需配置)
 ![](http://ov7z79pcc.bkt.clouddn.com/15038033326343.jpg)
 ![](http://ov7z79pcc.bkt.clouddn.com/15038033448673.jpg)
 ![](http://ov7z79pcc.bkt.clouddn.com/15038033541701.jpg)
 
 # 构建Map/Reduce项目
+1. 打开MyEclipse，我们选择 File --> New --> Other，点击后出现如下界面，选中Map/Reduce Project，点击下一步
+![](http://ov7z79pcc.bkt.clouddn.com/15038039274290.jpg)
+
+2. 在Project name后面输入项目名称，点击Finish完成Map/Reduce项目的创建
+![](http://ov7z79pcc.bkt.clouddn.com/15038039899204.jpg)
+
+3. 把Hadoop相关的jar包导入到项目中，点击项目右键 --> Build Path -- >Configure Build Path
+![](http://ov7z79pcc.bkt.clouddn.com/15038040384150.jpg)
 
 
 
