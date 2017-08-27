@@ -138,6 +138,7 @@ public class WordCount {
   }
 }
 ```
+<br>
 
 6. 这里我们需要下载log4j.properties文件放到src目录下，这样程序运行时可以打印日志，便于调试程序。
 http://hadoop.f.dajiangtai.com/extralib/log4j.rar
