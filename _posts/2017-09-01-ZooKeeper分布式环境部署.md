@@ -18,7 +18,7 @@ mathjax: true
 * 2 su到hadoop用户下进行之后的操作，首先到官方网站下载ZooKeeper安装包，也放到app目录下
 	http://mirrors.cnnic.cn/apache/zookeeper/
 
-* 3 对zookeeper安装包解压
+* 3 对zookeeper安装包解压<br>
 	tar zxf zookeeper-3.4.9.tar.gz
 	mv zookeeper-3.4.9 zookeeper
 
@@ -43,7 +43,7 @@ mathjax: true
 
 * 2 解压软件等操作与上面相同,不再重复
 
-* 3 创建数据目录
+* 3 创建数据目录<br>
 	mkdir -p /home/hadoop/data/zookeeper/zkdata
 	mkdir -p /home/hadoop/data/zookeeper/zkdatalog
 
