@@ -30,15 +30,16 @@ mathjax: true
 	cd /home/hadoop/app/zookeeper/conf/
 	cp zoo_sample.cfg zoo.cfg
 	vim zoo.cfg
-	![](http://ov7z79pcc.bkt.clouddn.com/15042651405552.png)
+	![](http://ov7z79pcc.bkt.clouddn.com/15042653823153.jpg)
 
 * 6 启动/关闭ZooKeeper Server，并查看进程是否启动
 	bin/zkServer.sh start
 	bin/zkServer.sh stop
-	![](http://ov7z79pcc.bkt.clouddn.com/15042651708969.png)
+	![](http://ov7z79pcc.bkt.clouddn.com/15042654070134.jpg)
 
 # 分布式模式
-* 1 5台机器进行初始化设置
+* 1 5台机器进行初始化设置,包括创建hadoop用户、创建文件夹、安装JDK、写hosts等等，不再重复，下面操作如未说明，则需要在5台机器上分别进行。其中z4、z5机器的角色为Observer（Observer(观察者)：Observer可以接收客户端连接，将写请求转发给learder节点，但Observer不参加投票过程，只同步learder的状态。其实它的目的是为了扩展系统，提高读取状态）。
+    ![](http://ov7z79pcc.bkt.clouddn.com/15042655532092.jpg)
 
 * 2 解压软件等操作与上面相同,不再重复
 
@@ -51,12 +52,12 @@ mathjax: true
 	cp zoo_sample.cfg zoo.cfg
 	vim zoo.cfg
 
-	z1,z2,z3配置:
+	==z1,z2,z3配置:==
 	tickTime=2000
 	initLimit=10
 	syncLimit=5
-	dataDir=/usr/java/hadoop/app/zookeeper/zkdata
-	dataLogDir=/usr/java/hadoop/app/zookeeper/zkdatalog
+	dataDir=/home/hadoop/data/zookeeper/zkdata
+	dataLogDir=/home/hadoop/data/zookeeper/zkdatalog
 	clientPort=2181
 	server.1=z1:2888:3888
 	server.2=z2:2888:3888
@@ -64,19 +65,26 @@ mathjax: true
 	server.4=z4:2888:3888:observer
 	server.5=z5:2888:3888:observer
 
-	z4,z5配置:
-	最下面加一行:peerType=observer
+	==z4,z5配置:==
+	跟上面一样，只是在最下面加一行:peerType=observer
 
 * 5 分别在5台机器上写入myid文件
-	z1:echo 1 > /home/hadoop/data/zookeeper/zkdata/myid
-	z2:echo 2 > /home/hadoop/data/zookeeper/zkdata/myid
-	z3:echo 3 > /home/hadoop/data/zookeeper/zkdata/myid
-	z4:echo 4 > /home/hadoop/data/zookeeper/zkdata/myid
-	z5:echo 5 > /home/hadoop/data/zookeeper/zkdata/myid
+	z1: echo 1 > /home/hadoop/data/zookeeper/zkdata/myid
+	z2: echo 2 > /home/hadoop/data/zookeeper/zkdata/myid
+	z3: echo 3 > /home/hadoop/data/zookeeper/zkdata/myid
+	z4: echo 4 > /home/hadoop/data/zookeeper/zkdata/myid
+	z5: echo 5 > /home/hadoop/data/zookeeper/zkdata/myid
 
 * 6 在每台集群上启动ZooKeeper Server
 	/home/hadoop/app/zookeeper/bin/zkServer.sh start
 	zookeeper启动之后，输入“jps”命令查看进程如下
+	![](http://ov7z79pcc.bkt.clouddn.com/15042660682632.jpg)
 
 * 7 通过 status 参数查看每个节点的状态
+    ![](http://ov7z79pcc.bkt.clouddn.com/15042661040085.jpg)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15042661164075.jpg)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15042661289035.jpg)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15042661413026.jpg)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15042661562385.jpg)
+
 
