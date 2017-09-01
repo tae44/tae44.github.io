@@ -26,7 +26,7 @@ mathjax: true
 	mkdir -p /home/hadoop/data/zookeeper/zkdata<br>
 	mkdir -p /home/hadoop/data/zookeeper/zkdatalog
 
-* 5 在ZooKeeper安装目录的conf目录下，创建一个配置文件zoo.cfg<br>
+* 5 在ZooKeeper安装目录的conf目录下，创建一个配置文件zoo.cfg，只修改目录即可<br>
 	cd /home/hadoop/app/zookeeper/conf/<br>
 	cp zoo_sample.cfg zoo.cfg<br>
 	vim zoo.cfg
@@ -34,7 +34,7 @@ mathjax: true
 
 * 6 启动/关闭ZooKeeper Server，并查看进程是否启动<br>
 	bin/zkServer.sh start<br>
-	bin/zkServer.sh stop
+	bin/zkServer.sh stop<br>
 	![](http://ov7z79pcc.bkt.clouddn.com/15042654070134.jpg)
 
 # 分布式模式
