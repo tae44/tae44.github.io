@@ -28,7 +28,7 @@ mathjax: true
 # 安装Elasticsearch
 * 1 下载软件并解压<br>
     cd app/<br>
-    wget-https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.6/elasticsearch-2.4.6.tar.gz<br>
+    wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.6/elasticsearch-2.4.6.tar.gz<br>
     tar zxf elasticsearch-2.4.6.tar.gz<br>
     rm elasticsearch-2.4.6.tar.gz<br>
     mv elasticsearch-2.4.6 elasticsearch
