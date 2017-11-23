@@ -26,10 +26,7 @@ mathjax: true
     * 如未说明则一律在h1主机上使用hadoop用户操作
 
 # 安装Elasticsearch
-* 1 下载软件并解压<br>
-    cd app/<br>
-    wget \ <br>
-    https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.6/elasticsearch-2.4.6.tar.gz<br>
+* 1 进入网址http://t.cn/RYABhEm,下载软件到app目录并解压<br>
     tar zxf elasticsearch-2.4.6.tar.gz<br>
     rm elasticsearch-2.4.6.tar.gz<br>
     mv elasticsearch-2.4.6 elasticsearch
