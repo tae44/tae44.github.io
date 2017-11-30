@@ -50,14 +50,14 @@ ansible other -m synchronize -a "src=/home/hadoop/app/elasticsearch/plugins/ik d
     首先在ik插件的config/custom目录下创建一个文件djt.dic,在文件中添加词语即可,每一个词语一行<br>
     cd /home/hadoop/app/elasticsearch/plugins/ik/config<br>
     vim xxoo.dic<br>
-    mv xxoo.dic custom/
+    mv xxoo.dic custom/<br>
     ![](http://ov7z79pcc.bkt.clouddn.com/15120038404826.jpg)
 
 * 2 修改配置文件<br>
     vim IKAnalyzer.cfg.xml
     ![](http://ov7z79pcc.bkt.clouddn.com/15120038668336.jpg)
 
-* 3 将修改好的配置文件传到其他节点,然后重启ElasticSearch服务<br>
+* 3 将修改好的配置文件和词库传到其他节点,然后重启ElasticSearch服务<br>
     ![](http://ov7z79pcc.bkt.clouddn.com/15120038887528.jpg)
     ![](http://ov7z79pcc.bkt.clouddn.com/15120039191919.jpg)
     
@@ -81,7 +81,7 @@ ansible other -m synchronize -a "src=/home/hadoop/app/elasticsearch/plugins/ik d
 
 * 2 添加热词文件<br>
     cd webapps/ROOT<br>
-    vim hot.dic
+    vim hot.dic<br>
     ![](http://ov7z79pcc.bkt.clouddn.com/15120040117008.jpg)
 
 * 3 测试热词文件能否被访问<br>
