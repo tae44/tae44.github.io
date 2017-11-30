@@ -92,10 +92,11 @@ discovery.zen.ping.unicast.hosts: ["h1", "h2", "h3"]
     ![](http://ov7z79pcc.bkt.clouddn.com/15120077457985.jpg)
 
 * 9 在h1上修改Gruntfile.js文件,添加1行<br>
+    cd /home/hadoop/app/elasticsearch-head<br>
     vim Gruntfile.js
     ![](http://ov7z79pcc.bkt.clouddn.com/15120080744717.jpg)
 
-* 10 在h1上启动elasticsearch服务,发现如下错误,我们需要修复,修复使用root用户<br>
+* 10 在h1上启动elasticsearch服务,发现如下4个错误,我们需要修复,修复使用root用户<br>
     /home/hadoop/app/elasticsearch/bin/elasticsearch<br>
     ![](http://ov7z79pcc.bkt.clouddn.com/15120082364563.jpg)
     * vim /etc/security/limits.conf<br>
