@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ElasticSearch 5.50 版本安装"
+title:  "ElasticSearch 5.50 版本安装(此篇暂停更新)"
 date:   2017-11-30 09:22:05 +0800
 categories: Hadoop
 tags: Elasticsearch
@@ -91,10 +91,12 @@ discovery.zen.ping.unicast.hosts: ["h1", "h2", "h3"]
     ```
     ![](http://ov7z79pcc.bkt.clouddn.com/15120077457985.jpg)
 
-* 9 在h1上修改Gruntfile.js文件,添加1行<br>
+* 9 在h1上修改2个head配置文件<br>
     cd /home/hadoop/app/elasticsearch-head<br>
-    vim Gruntfile.js
+    vim Gruntfile.js<br>
     ![](http://ov7z79pcc.bkt.clouddn.com/15120080744717.jpg)
+    vim _site/app.js<br>
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120208947339.jpg)
 
 * 10 在h1上启动elasticsearch服务,发现如下4个错误,我们需要修复,修复使用root用户<br>
     /home/hadoop/app/elasticsearch/bin/elasticsearch<br>
@@ -124,6 +126,16 @@ discovery.zen.ping.unicast.hosts: ["h1", "h2", "h3"]
     cd /home/hadoop/app/elasticsearch-head<br>
     npm run start
     
+* 13 X-Pack插件需要授权才能使用,最后我们来处理此事<br>
+    * 打开注册网页https://www.elastic.co/subscriptions
+        ![](http://ov7z79pcc.bkt.clouddn.com/15120262343447.jpg)
+    
+    * 根据提示一步步的,最后下载key文件
+        ![](http://ov7z79pcc.bkt.clouddn.com/15120262898600.jpg)
+
+    * 在主机上注册
+        
+    
 # 安装Kibana
 * 1 在h1上下载软件并解压<br>
     cd /home/hadoop/app<br>
@@ -143,5 +155,9 @@ discovery.zen.ping.unicast.hosts: ["h1", "h2", "h3"]
     
 * 3 安装X-Pack插件<br>
     /home/hadoop/app/kibana/bin/kibana-plugin install x-pack
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120155486224.jpg)
+
+* 4 启动Kibana<br>
+    
 
 
