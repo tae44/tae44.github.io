@@ -26,7 +26,7 @@ mathjax: true
     * 如未说明则一律在h1主机上使用hadoop用户操作    
     * ansible的安装可参考之前HBase安装,不一定非要使用
 
-# Elasticsearch安装
+# IK插件安装
 * 1 下载IK插件<br>
     下载插件要根据自己机器的elasticsearch版本下载,网址是https://github.com/medcl/elasticsearch-analysis-ik,这里我下载1.10.6,对应我的2.4.6版本,将下载好的文件放到第二步创建的ik目录里
     
@@ -42,8 +42,8 @@ ansible other -m synchronize -a "src=/home/hadoop/app/elasticsearch/plugins/ik d
 * 4 重启ElasticSearch服务并测试<br>
     curl 'http://h1:9200/djt/_analyze?analyzer=ik_max_word&pretty=true' -d '{"text":"我们是中国人"}'<br>
     curl 'http://h1:9200/djt/_analyze?analyzer=ik_smart&pretty=true' -d '{"text":"我们是中国人"}'<br>
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120020063442.png)
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120020137746.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120037977728.jpg)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120038115155.jpg)
 
 # 自定义IK词库
 * 1 创建自定义词库<br>
@@ -51,22 +51,22 @@ ansible other -m synchronize -a "src=/home/hadoop/app/elasticsearch/plugins/ik d
     cd /home/hadoop/app/elasticsearch/plugins/ik/config<br>
     vim xxoo.dic<br>
     mv xxoo.dic custom/
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120021778687.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120038404826.jpg)
 
 * 2 修改配置文件<br>
     vim IKAnalyzer.cfg.xml
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120022257803.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120038668336.jpg)
 
 * 3 将修改好的配置文件传到其他节点,然后重启ElasticSearch服务<br>
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120024655218.png)
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120024151463.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120038887528.jpg)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120039191919.jpg)
     
 * 4 测试<br>
     curl 'http://h1:9200/djt/_analyze?analyzer=ik_max_word&pretty=true' -d '{"text":"真牛逼"}'<br>
     curl 'http://h1:9200/djt/_analyze?analyzer=ik_smart&pretty=true' -d '{"text":"真牛逼"}'<br>
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120026025427.png)
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120026955250.png)
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120027055248.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120039461352.jpg)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120039609506.jpg)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120039725100.jpg)
 
 # 热更新IK词库
 * 1 上面的方法每次添加热词需要重启服务,非常麻烦,固我们使用热更新的方式,需要部署tomcat服务<br>
@@ -77,34 +77,34 @@ ansible other -m synchronize -a "src=/home/hadoop/app/elasticsearch/plugins/ik d
     mv apache-tomcat-7.0.82 tomcat<br>
     cd tomcat<br>
     bin/startup.sh
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120030793057.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120039935021.jpg)
 
 * 2 添加热词文件<br>
     cd webapps/ROOT<br>
     vim hot.dic
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120031410403.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120040117008.jpg)
 
 * 3 测试热词文件能否被访问<br>
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120031819911.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120040297562.jpg)
 
 * 4 修改ik插件的配置文件<br>
     cd /home/hadoop/app/elasticsearch/plugins/ik/config<br>
     vim IKAnalyzer.cfg.xml
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120032341659.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120040483554.jpg)
 
 * 5 将修改的文件传到其他节点,然后重启ElasticSearch服务
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120032633327.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120040664032.jpg)
 
 * 6 测试<br>
     curl 'http://h1:9200/djt/_analyze?analyzer=ik_max_word&pretty=true' -d '{"text":"老司机"}'<br>
     curl 'http://h1:9200/djt/_analyze?analyzer=ik_max_word&pretty=true' -d '{"text":"么么哒"}'
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120033236269.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120040878182.jpg)
 
 * 7 实时更新热词<br>
     vim /home/hadoop/app/tomcat/webapps/ROOT/hot.dic<br>
     curl 'http://h1:9200/djt/_analyze?analyzer=ik_max_word&pretty=true' -d '{"text":"吸猫人"}'
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120033958178.png)
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120034015370.png)
-    ![](http://ov7z79pcc.bkt.clouddn.com/15120034069609.png)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120041029055.jpg)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120041127934.jpg)
+    ![](http://ov7z79pcc.bkt.clouddn.com/15120041222979.jpg)
 
 
