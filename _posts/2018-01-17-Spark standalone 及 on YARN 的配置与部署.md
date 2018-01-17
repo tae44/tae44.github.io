@@ -38,8 +38,7 @@ mathjax: true
     ![](http://ov7z79pcc.bkt.clouddn.com/15161492087261.jpg)
 
 * 3 spark提交job时的默认配置,暂时保持默认<br>
-    mv spark-defaults.conf.template spark-defaults.conf<br>
-    vim spark-defaults.conf
+    mv spark-defaults.conf.template spark-defaults.conf
     
 * 4 spark的环境变量<br>
     mv spark-env.sh.template spark-env.sh<br>
@@ -84,7 +83,7 @@ cat /home/hadoop/app/spark/logs/spark-hadoop-org.apache.spark.deploy.master.Mast
 * 12 启动hdfs集群<br>
     /home/hadoop/app/hadoop/sbin/start-dfs.sh
 
-* 13 将测试数据放到hdfs上
+* 13 将测试数据放到hdfs上,output目录不需要提前创建,如有则删除
     ![](http://ov7z79pcc.bkt.clouddn.com/15161498545336.jpg)
 
 * 14 Spark集群提交作业<br>
@@ -122,7 +121,7 @@ cat /home/hadoop/app/spark/logs/spark-hadoop-org.apache.spark.deploy.master.Mast
     ./spark-shell --master yarn
     ![](http://ov7z79pcc.bkt.clouddn.com/15161502971262.jpg)
 
-* 4 提交Spark job给YARN
+* 4 提交Spark job给YARN<br>
     ./spark-submit --master yarn --deploy-mode cluster --class com.dajiangtai.spark.MyWordCount /home/hadoop/app/spark/learning-saprk-1.0-SNAPSHOT.jar hdfs://cluster1/data/spark/input/spark.txt hdfs://cluster1/data/spark/output
 
 
